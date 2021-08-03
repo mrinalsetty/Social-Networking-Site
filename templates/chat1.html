@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Edit</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: 'Times New Roman', Times, serif;
+            background-color: whitesmoke;
+        }
+
+
+        .editbox {
+            margin: auto;
+            width: 25%;
+            height: 45%;
+            padding: 15px;
+            background-color: white;
+            position: absolute;
+            top: 27.5%;
+            right: 37.5%;
+            box-shadow: 0px 4px 10px 0px black;
+        }
+
+
+        h1 {
+            margin: 0;
+            padding: 0 0 20px;
+            text-align: center;
+            font: size 22px;
+        }
+
+        .editbox p {
+            margin: 0;
+            padding: 0;
+            font-weight: bold;
+        }
+
+        .editbox input {
+            width: 100%;
+            margin-bottom: 20px;
+        }
+
+        .editbox input[type="text"],
+        input[type="password"] {
+            border: none;
+            border-bottom: 1px solid rgb(189, 179, 179);
+            outline: none;
+            height: 40px;
+            color: black;
+            font-size: 16px;
+        }
+
+        .editbox input[type="submit"] {
+            border: none;
+            outline: none;
+            height: 40px;
+            background: blue;
+            color: white;
+            font-size: 18px;
+            border-radius: 20px;
+        }
+
+        .editbox input[type="submit"]:hover {
+            cursor: pointer;
+            background: aqua;
+            color: #000;
+        }
+
+        .editbox a {
+            text-decoration: none;
+            font-size: 14px;
+            line-height: 20px;
+            color: black;
+            position: absolute;
+            right: 0%;
+            padding-right: 10px;
+        }
+
+        .editbox a:hover {
+            color: blue;
+        }
+    </style>
+</head><br>
+<a href="{% url 'home1' %}" style="text-decoration: none; color: black; font-size: 17px; padding:20px; padding-top: 20px;"><button name="Home">HOME</button></a>
+
+<body style="background-color: whitesmoke;">
+    <div class="editbox">
+        <h1>Send mail</h1>
+        <p style="color: red;">{{note}}</p>
+        <form method="post" action="chatbox">
+            {% csrf_token %}    
+            <br><br>
+            <label for="desc">
+                <p>To : {{to_id}}</p>
+            </label><br> 
+            <textarea name="mess" placeholder="Enter the message.." style="width:100%;" rows="7"></textarea>
+            <br><br>     
+            <input type="submit" name="Send" value="Send">
+        </form>
+    
+    </div>
+</body>
+
+</html>

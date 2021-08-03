@@ -1,0 +1,154 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+  <head>
+<style>
+*{margin:0; padding:0; box-sizing: border-box; font-family: 'Josefin Sans', sans-serif;}
+
+body{
+  overflow-x: hidden;
+}
+
+.imgcontainer {
+  text-align: center;
+  margin-top: 40px;
+}
+
+img.profile_pic {
+  width: 300px;
+  height: 250px;
+  border-radius: 20%;
+  object-fit: cover;
+}
+
+
+img.avatar {
+  width: 20%;
+  border-radius: 20%;
+}
+
+input[type=text], select, input[type=tel], input[type=email], input[type=date] {
+  width: 100%;
+  padding: 12px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  resize: vertical;
+}
+
+label {
+  padding: 12px 12px 12px 0;
+  display: inline-block;
+}
+
+input[type=submit] {
+  background-color: #4CAF50;
+  color: white;
+  padding: 12px 20px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  float: right;
+}
+
+button {
+  background-color: #4CAF50;
+  color: white;
+  padding: 12px 20px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  float: right;
+}
+
+input[type=submit]:hover {
+  background-color: #45a049;
+}
+
+.area {
+ /* Stay on top */
+  top: 0; /* Stay at the top */
+  border-radius: 7px;
+  background-color: #f2f2f2;
+  overflow-x: hidden; /* Disable horizontal scroll */
+  transition: 0.5s; /* 0.5 second transition effect to slide in the sidenav */
+}
+
+.stu{
+  width: 100%;
+  left: 0;
+  padding: 40px;
+}
+
+.ment{
+  width: 100%;
+  right: 0;
+  padding: 40px;
+}
+
+.nowpress, .nowpress:hover, .nowpress:focus {
+  background-color: #a6a6a6;
+}
+
+.mainarea{
+  width: 90%;
+  margin: 0% 5% 20px 5%; 
+}
+
+.postpic{
+	width: 80%;
+	height: 70%;
+	background-color:transparent;
+	position: absolute;
+	top: 15%;
+	right: 10%;
+	box-shadow: 0px 4px 20px 0px black;
+}
+
+
+/* Responsive layout - when the screen is less than 600px wide, make the two columns stack on top of each other instead of next to each other */
+@media screen and (max-width: 600px) { input[type=submit] {
+    width: 100%;
+    margin-top: 0;
+  }
+}
+
+</style>
+</head>
+<boby class="postpic">
+
+  <div>
+
+    <div class="row align-items-center">
+      
+      <div class="col"  style="text-align: center">
+        <h2 style="font-family: Josefin Sans">ADD POST</h2>
+      </div>
+      
+      <div class="col">
+        <div class= "imgcontainer">
+          {% if uploaded_file_url %}
+          <img class= "profile_pic" src="{{ uploaded_file_url }}" id="profile_pic"></img>
+          {% else %}
+          <img class= "profile_pic" src="/media/default_post.png" id="profile_pic"></img>
+          {% endif %}
+          <form action="addpostpic" method="post" enctype="multipart/form-data" style="text-align: center">
+            {% csrf_token %}
+          <div class= "row align-items-center">
+            <div class="col" style="text-align: center">
+              <br><br> 
+              <input type="file" name="myfile" id="imageToUpload" required>
+              <input type="submit" value="Upload" name="add" style="position:absolute; right:35%; margin-right: 20px">
+              
+              <!--input type="submit" value="Done" name="contin" style="position:absolute; right:10%; margin-right: 20px"-->
+            </div>
+          </div>
+          </form>
+          <br><br>
+          <button type="submit" name="contin" style="position:absolute; right:10%; margin-right: 20px" ><a href="{% url 'addpost' %}" style="color:white; text-decoration:none;" >Continue</a></button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</body>
+</html>

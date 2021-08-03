@@ -1,0 +1,400 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+
+<head>
+   <title>Home</title>
+   <style type="text/css">
+      :root {
+         --grad: linear-gradient(to bottom right, #9c27b0, #ff2222);
+         --clip: polygon(52% 65%, 100% 38%, 100% 0, 0 0, 0% 38%);
+         --shadow: rgba(50, 50, 93, 0.25) 0px 30px 60px -12px, rgba(0, 0, 0, 0.3) 0px 18px 36px -18px;
+         --c: #eaeaea;
+         --g: #74d800;
+      }
+
+      ::-webkit-scrollbar {
+         width: 5px;
+         height: 0px;
+         border-radius: 10px;
+      }
+
+      ::-webkit-scrollbar-button {
+         width: 0px;
+         height: 0px;
+         border-radius: 10px;
+      }
+
+      ::-webkit-scrollbar-thumb {
+         background: #525965;
+
+         border-radius: 50px;
+      }
+
+      ::-webkit-scrollbar-thumb:hover {
+         background: #525965;
+      }
+
+      ::-webkit-scrollbar-thumb:active {
+         background: #525965;
+      }
+
+      ::-webkit-scrollbar-track {
+         background: transparent;
+         border: 0px none #ffffff;
+         border-radius: 50px;
+      }
+
+      ::-webkit-scrollbar-track:hover {
+         background: transparent;
+      }
+
+      ::-webkit-scrollbar-track:active {
+         background: transparent;
+      }
+
+      ::-webkit-scrollbar-corner {
+         background: transparent;
+      }
+
+      @font-face {
+         src: url("q.ttf");
+         font-family: f;
+      }
+
+      body {
+         font-family: f;
+      }
+
+      * {
+         margin: 0;
+         padding: 0;
+         box-sizing: border-box;
+      }
+
+      nav {
+         width: 100%;
+         height: 50px;
+         background: white;
+         position: sticky;
+         top: 0;
+         z-index: 999;
+         border-bottom: 1px solid lightgrey;
+      }
+
+      .nav {
+         min-width: 1000px;
+         max-width: 1000px;
+         margin: auto;
+         display: flex;
+         align-items: center;
+         height: 50px;
+         justify-content: space-between;
+      }
+
+      .in {
+         border: none;
+         outline: none;
+         background: transparent;
+         font-family: f;
+      }
+      .svg1 {
+         width: 17px;
+         height: 17px;
+      }
+      .svg2 {
+         width: 17px;
+         height: 17px;
+         border-radius: 50px;
+      }
+
+      .search {
+         padding: 5px 15px;
+         border-radius: 2px;
+         background: var(--c);
+         border: 1px solid lightgrey;
+         display: flex;
+         align-items: center;
+      }
+
+      li {
+         list-style: none;
+         display: inline-block;
+         margin-left: 7px;
+         margin-right: 7px;
+      }
+
+      .body {
+         min-width: 1000px;
+         max-width: 1000px;
+         display: flex;
+         margin: auto;
+      }
+
+      .left {
+         width: 600px !important;
+      }
+
+      .right {
+         width: 300px;
+         margin-top: 30px;
+         position: sticky;
+         top: 80px;
+         margin-left: 40px;
+         left: 40%;
+      }
+
+      .story {
+         display: flex;
+         margin-top: 20px;
+         width: 600px;
+         overflow-y: auto;
+      }
+
+      .s1 {
+         min-width: 60px;
+         min-height: 60px;
+         display: flex;
+         margin-left: 5px;
+         align-items: center;
+         flex-direction: column;
+         position: relative;
+      }
+
+      .story_i {
+         width: 40px;
+         height: 40px;
+         border: 1px solid lightgrey;
+         position: absolute;
+         border-radius: 50px;
+      }
+
+      .q {
+         height: 20px;
+         background: red;
+         width: 20px;
+         display: block;
+         position: absolute;
+         right: 0;
+         top: 23px;
+      }
+
+      .post {
+         border: 1px solid lightgrey;
+         width: 600px;
+         border-radius: 2px;
+         margin-top: 20px;
+         background: white;
+      }
+
+      .head {
+         display: flex;
+         border-radius: 10px;
+         padding: 15px;
+         background: white;
+         align-items: center;
+         justify-content: space-between;
+      }
+
+      .avatar {
+         width: 40px;
+         height: 40px;
+         border-radius: 50px;
+      }
+
+      .name_profile {
+         display: flex;
+         align-items: center;
+      }
+
+      .qq {
+         margin-left: 10px;
+      }
+
+      .qq p {
+         color: grey;
+         font-size: 13px;
+      }
+
+      .svg {
+         height: 23px;
+         width: 23px;
+      }
+
+      .bbody {
+         padding-left: 15px;
+         padding-right: 15px;
+      }
+
+      .body p {
+         font-size: 14px;
+      }
+
+      .post_image {
+
+         height: 250px;
+         width: 100%;
+         margin-top: 10px;
+
+      }
+
+      .btm_icon {
+         display: flex;
+         align-items: center;
+         justify-content: space-between;
+      }
+
+      .left_icon {
+         margin-left: 10px;
+         margin-top: 15px;
+      }
+
+      .margin {
+         margin-left: 15px;
+      }
+
+      .right_icon {
+         margin-top: 15px;
+         
+      }
+
+      form {
+         display: flex;
+         align-items: center;
+         justify-content: space-between;
+      }
+
+      .ico {
+         width: 40px;
+         height: 40px;
+         border-radius: 50px;
+      }
+
+      .in {
+         background: transparent;
+         border: none;
+         outline: none;
+         margin-left: 15px;
+      }
+
+      .flex {
+         display: flex;
+         align-items: center;
+      }
+
+      form {
+         border-top: 1px solid lightgrey;
+         padding: 10px;
+         margin-bottom: 10px;
+         margin-top: 20px;
+      }
+
+      .my_icon_name {
+         display: flex;
+         align-items: center;
+         justify-content: space-between;
+         margin-top: 10px;
+      }
+
+      .image_mine {
+         width: 45px;
+         height: 45px;
+         border-radius: 50px;
+         border: 1px solid lightgrey;
+      }
+
+      .my_icon_name div {
+         display: flex;
+         align-items: center;
+      }
+
+      div h4 {
+         margin-left: 10px;
+      }
+
+      a {
+         text-decoration: none;
+      }
+
+      .sugges {
+         display: flex;
+         justify-content: space-around;
+         margin-top: 20px;
+      }
+
+      .qqq p {
+         margin-left: 10px;
+      }
+
+      .b a {
+         color: grey;
+         margin: 20px;
+         word-wrap: break-word;
+      }
+
+      .b {
+         width: 300px;
+         margin-top: 20px;
+      }
+   </style>
+</head>
+
+<body>
+   <br>
+   <a href="{% url 'home1' %}" style="text-decoration: none; color: black; font-size: 17px; padding:20px;"><button name="Home">HOME</button></a>
+
+   <!--nav>
+      <div class="nav">
+         <h1 style="font-family: 'Times New Roman', Times, serif;">Social Networking Site</h1>
+         <form method="post" action="profile">
+            {% csrf_token %}
+         <div class="search">
+            <input type="text" name="user_id" placeholder="search" class="in" style="background-color: none;">
+            <input type="image"; src="{% static 'search.svg' %}" class="svg1" alt="submit">
+         </div>
+      </form>
+         <ul>
+            <li><a href="//"><img src="{% static 'add.svg' %}" class="svg1"></a></li>
+            <li><a href="{% url 'globe' %}"><img src="{% static 'search.svg' %}" class="svg1"></a></li>
+            <li><img src="{% static 'send.svg' %}" class="svg1"></li>
+            <li><a href="{% url 'addpostpic' %}"><img src="{% static 'save.svg' %}" class="svg1"></a></li>
+            {% for n in name %}
+            <li><a href="{% url 'profile' %}"><img src="{{n.image}}" class="svg2"></a></li>
+            {% endfor %}
+         </ul>
+      </div>
+   </nav-->
+   <div class="body">
+      <div class="right">
+         {% for n in name %}
+         <!--div class="my_icon_name">
+            <div><a href="{% url 'profile' %}">
+               <img src="{{n.image}}" class="image_mine"></a>
+               <a href="{% url 'profile' %}" style="color:black;"><h4>{{n.username}}</h4></a>
+            </div>
+            <a href="{% url 'logout' %}">Logout</a>
+         </div>
+         {% endfor %}
+         <br><hr-->
+         <div class="sugges" style="display: flex; justify-content: space-around; margin-top: 20px; color:#4747d1;">
+            <h3>Suggestions</h3>
+            <!--h6>See All</h6-->
+         </div>
+         {% for x in suggestion %}
+         <div class="my_icon_name">
+            <div>
+               <img src='{{x.image}}' class="image_mine">
+               <form method="post" action="profile">
+                  {% csrf_token %}
+               <input type="submit" name='user_id' value='{{x.username}}' style="border:transparent; background:transparent; font-weight: bold; font-size: 14px;">
+               </form>
+            </div>    
+            <!--a href="#">Follow</a-->
+         </div>
+         {% endfor %}
+      </div>
+
+   </div>
+</body>
+
+</html>

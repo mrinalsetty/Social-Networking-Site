@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Forgot</title>
+    <style>
+        body {
+            background-color: whitesmoke;
+            margin: 0;
+            padding: 0;
+            font-family: 'Times New Roman', Times, serif;
+        }
+
+
+        .forgotbox {
+            margin: auto;
+            width: 20%;
+            height: 40%;
+            padding: 15px;
+            background-color: white;
+            position: absolute;
+            top: 30%;
+            right: 40%;
+            box-shadow: 0px 4px 10px 0px black;
+        }
+
+        h1 {
+            margin: 0;
+            padding: 0 0 20px;
+            text-align: center;
+            font: size 22px;
+        }
+
+        .forgotbox p {
+            margin: 0;
+            padding: 0;
+            font-weight: bold;
+        }
+
+        .forgotbox input {
+            width: 100%;
+            margin-bottom: 20px;
+        }
+
+        .forgotbox input[type="text"],
+        input[type="password"] {
+            border: none;
+            border-bottom: 1px solid rgb(189, 179, 179);
+            outline: none;
+            height: 40px;
+            color: black;
+            font-size: 16px;
+        }
+
+        .forgotbox input[type="submit"] {
+            border: none;
+            outline: none;
+            height: 40px;
+            background: blue;
+            color: white;
+            font-size: 18px;
+            border-radius: 20px;
+        }
+
+        .forgotbox input[type="submit"]:hover {
+            cursor: pointer;
+            background: aqua;
+            color: #000;
+        }
+
+        .forgotbox a {
+            text-decoration: none;
+            font-size: 14px;
+            line-height: 20px;
+            color: black;
+        }
+
+        .forgotbox a:hover {
+            color: blue;
+        }
+
+        .otp {
+            background-color: blue;
+            color: white;
+
+        }
+
+        .otp:hover {
+            cursor: pointer;
+            background: aqua;
+            color: #000;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="forgotbox">
+        <h1>OTP verification</h1>
+        <p style="color: rgb(49, 49, 49)">Password reset otp is send to your mail..</p>
+        <br>
+        <p style="color:red;">{{in}}</p>
+        <form method="post" action="otp">
+            {% csrf_token %}
+            <p>OTP</p>
+            <input type="text" name="otp" placeholder="Enter OTP" required>
+            <input type="submit" name="ver" value="Submit">
+            
+        </form>
+        <a href="{% url 'login' %}">Back to login</a>
+    </div>
+</body>
+
+</html>

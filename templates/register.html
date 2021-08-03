@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+	<title>Register</title>
+
+	<style>
+		body {
+			margin: 0;
+			padding: 0;
+			font-family: 'Times New Roman', Times, serif;
+		}
+
+		.center {
+			margin: auto;
+			width: 20%;
+			height: 90%;
+			padding: 15px;
+			background-color: white;
+			position: absolute;
+			top: 5%;
+			right: 40%;
+			box-shadow: 0px 4px 10px 0px black;
+		}
+
+
+
+		.user_inputs {
+			width: 85%;
+			height: 17px;
+			position: relative;
+			padding: 12px 10px;
+			border-radius: 6px;
+			font-size: 16px;
+			font-weight: 400;
+			line-height: normal;
+			background-color: transparent;
+			color: #282828;
+			outline: none;
+			box-shadow: 0px 4px 20px 0px transparent;
+
+		}
+
+		.sub {
+
+			background-color: blue;
+			color: white;
+			font-size: 15px;
+			padding: 12px 10px;
+			margin: 10px 0px;
+			border: none;
+			border-radius: 8px;
+			cursor: pointer;
+			width: 90%;
+
+		}
+
+		button:hover {
+			cursor: pointer;
+			background: aqua;
+			color: #000;
+		}
+
+
+		.butt_n {
+			position: absolute;
+			left: 7%;
+			width: 95%;
+		}
+	</style>
+</head>
+{% block start%}
+<body style="background-color: whitesmoke; ">
+	<div class="center">
+		<div>
+			<div>
+				<h3 style="text-align : center; font-family: Georgia, serif; font-size: 23px;">Sign up</h3>
+				<p style="color:red">{{in}}</p>
+			</div>
+			<form method="post" action="register">
+				{% csrf_token%}
+				
+			<div style="font-family: Georgia, serif;">
+				<span style="padding: 10px;"><input class="user_inputs" type="text"
+					 placeholder="Name" name="name" value="{{name}}"required></span><br><br>
+				<span style="padding: 10px;"><input class="user_inputs" type="text" 
+					placeholder="Userame" name="username" value="{{username}}" required></span><br><br>
+				<span style="padding: 10px;"><input class="user_inputs" type="email"
+						placeholder="Mail-id" name="email" value="{{email}}"  required></span><br><br>
+				<span style="padding: 10px;"><input class="user_inputs" type="tel"
+						placeholder="Phone number" name="phone" value="{{phone_no}}"  required></span><br><br>
+				<span style="padding: 10px;"><input class="user_inputs" type="date"
+						placeholder="Date of Birth" name="dob" value="{{dob}}"  required></span><br><br>
+				<span style="padding: 10px;"><input class="user_inputs" type="password"
+						placeholder="Enter password" name="psw1"  required></span><br><br>
+				<span style="padding: 10px;"><input class="user_inputs" type="password"
+						placeholder="Re-enter password" name="psw2"  required></span><br><br>
+			</div>
+			
+			<div class="butt_n">
+				<input type="submit" name="sub" value="Submit" class="sub">
+			</div>
+			</form>
+			<div>
+			</div>
+			<br><br><br><br>
+			<hr style="width:90%; height:2px; border-width:0; background-color: #696969; ">
+			<div>
+				<div style="padding: 10px; font-size:17px;">
+					<span>Already have account: <a href="{% url 'login' %}"
+							style="color: black; text-decoration:none;"><b>Sign in</b></a></span>
+				</div>
+			</div>
+</body>
+{% endblock start%}
+</html>
